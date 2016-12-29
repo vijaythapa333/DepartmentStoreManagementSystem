@@ -1,6 +1,6 @@
 ﻿namespace DepartStoreManagementSystem.UI
 {
-    partial class User
+    partial class frmUser
     {
         /// <summary>
         /// Required designer variable.
@@ -38,7 +38,7 @@
             this.labelFullName = new System.Windows.Forms.Label();
             this.textBoxEmail = new System.Windows.Forms.TextBox();
             this.labelEmail = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.textBoxContact = new System.Windows.Forms.TextBox();
             this.labelContact = new System.Windows.Forms.Label();
             this.textBoxPassword = new System.Windows.Forms.TextBox();
             this.labelPassword = new System.Windows.Forms.Label();
@@ -56,6 +56,7 @@
             this.dataGridViewUsers.Name = "dataGridViewUsers";
             this.dataGridViewUsers.Size = new System.Drawing.Size(529, 386);
             this.dataGridViewUsers.TabIndex = 0;
+            this.dataGridViewUsers.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridViewUsers_RowHeaderMouseClick);
             // 
             // label1
             // 
@@ -140,13 +141,13 @@
             this.labelEmail.TabIndex = 8;
             this.labelEmail.Text = "EMail";
             // 
-            // textBox4
+            // textBoxContact
             // 
-            this.textBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox4.Location = new System.Drawing.Point(113, 224);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(209, 22);
-            this.textBox4.TabIndex = 11;
+            this.textBoxContact.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxContact.Location = new System.Drawing.Point(113, 224);
+            this.textBoxContact.Name = "textBoxContact";
+            this.textBoxContact.Size = new System.Drawing.Size(209, 22);
+            this.textBoxContact.TabIndex = 11;
             // 
             // labelContact
             // 
@@ -211,6 +212,7 @@
             this.buttonSave.TabIndex = 16;
             this.buttonSave.Text = "SAVE";
             this.buttonSave.UseVisualStyleBackColor = false;
+            this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
             // 
             // buttonDelete
             // 
@@ -223,8 +225,9 @@
             this.buttonDelete.TabIndex = 17;
             this.buttonDelete.Text = "DELETE";
             this.buttonDelete.UseVisualStyleBackColor = false;
+            this.buttonDelete.Click += new System.EventHandler(this.buttonDelete_Click);
             // 
-            // Users
+            // frmUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -235,7 +238,7 @@
             this.Controls.Add(this.labelUserType);
             this.Controls.Add(this.textBoxPassword);
             this.Controls.Add(this.labelPassword);
-            this.Controls.Add(this.textBox4);
+            this.Controls.Add(this.textBoxContact);
             this.Controls.Add(this.labelContact);
             this.Controls.Add(this.textBoxEmail);
             this.Controls.Add(this.labelEmail);
@@ -247,9 +250,10 @@
             this.Controls.Add(this.labelUserID);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dataGridViewUsers);
-            this.Name = "Users";
+            this.Name = "frmUser";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Users";
+            this.Load += new System.EventHandler(this.frmUser_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewUsers)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -268,7 +272,7 @@
         private System.Windows.Forms.Label labelFullName;
         private System.Windows.Forms.TextBox textBoxEmail;
         private System.Windows.Forms.Label labelEmail;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox textBoxContact;
         private System.Windows.Forms.Label labelContact;
         private System.Windows.Forms.TextBox textBoxPassword;
         private System.Windows.Forms.Label labelPassword;

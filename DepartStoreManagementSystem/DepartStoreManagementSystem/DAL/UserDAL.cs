@@ -27,7 +27,7 @@ namespace DepartStoreManagementSystem.DAL
             try
             {
                 //Step 2: Writing SQL
-                String sql = "SELECT UserID,FullName,Username,Email,Contact,UserType FROM tbl_User";
+                String sql = "SELECT UserID,FullName,Username,Email,Contact,Password,UserType FROM tbl_User";
 
                 //Step 3: Create SqlCommand Using the sql and conn
                 SqlCommand cmd = new SqlCommand(sql, conn);

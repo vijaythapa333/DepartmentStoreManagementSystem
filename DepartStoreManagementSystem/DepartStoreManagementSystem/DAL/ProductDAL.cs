@@ -59,7 +59,7 @@ namespace DepartStoreManagementSystem.DAL
             try
             {
                 //Step 2: Write SQL Query
-                string sql = "INSERT INTO tbl_Product (ProductName,Category,Rate,Quantity) VALUES (@ProductName,@Category,@Rate,@Quantity)";
+                string sql = "INSERT INTO tbl_Product (Product_Name,Category,Rate,Quantity) VALUES (@ProductName,@Category,@Rate,@Quantity)";
 
                 //Step 3: Create SQL Command Using sql and conn
                 SqlCommand cmd = new SqlCommand(sql, conn);
@@ -111,7 +111,7 @@ namespace DepartStoreManagementSystem.DAL
             try
             {
                 //STep 2: Write SQL to Update
-                string sql = "UPDATE tbl_Product SET ProductName=@ProductName,Category=@Category,Rate=@Rate,Quantity=@Quantity WHERE ProductID=@ProductID";
+                string sql = "UPDATE tbl_Product SET Product_Name=@ProductName,Category=@Category,Rate=@Rate,Quantity=@Quantity WHERE Product_ID=@ProductID";
 
                 //Step 3: Create Sql Command using sql and conn
                 SqlCommand cmd = new SqlCommand(sql, conn);
@@ -160,7 +160,7 @@ namespace DepartStoreManagementSystem.DAL
             try
             {
                 //Step 2: Write Sql Query
-                string sql = "DELETE FROM tbl_Product WHERE ProductID=@ProductID";
+                string sql = "DELETE FROM tbl_Product WHERE Product_ID=@ProductID";
                 //STep 3: Create Sql Command Using sql and conn
                 SqlCommand cmd = new SqlCommand(sql, conn);
                 //Step 4: Pass value to parameters via cmd

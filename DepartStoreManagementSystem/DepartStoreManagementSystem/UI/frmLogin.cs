@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace DepartStoreManagementSystem
+namespace DepartStoreManagementSystem.UI
 {
-    public partial class FormHome : Form
+    public partial class frmLogin : Form
     {
-        public FormHome()
+        public frmLogin()
         {
             InitializeComponent();
         }

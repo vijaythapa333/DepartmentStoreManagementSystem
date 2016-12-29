@@ -11,7 +11,7 @@ namespace DepartStoreManagementSystem.Class
         public int ProductID { get; set; }
         public string ProductName { get; set; }
         public decimal Rate { get; set; }
-        public int Quantity { get; set; }
+        public decimal Quantity { get; set; }
         public string Category { get; set; }
 
     }

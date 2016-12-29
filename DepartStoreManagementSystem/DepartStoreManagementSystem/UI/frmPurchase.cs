@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace DepartStoreManagementSystem.UI
 {
-    public partial class Purchase : Form
+    public partial class frmPurchase : Form
     {
-        public Purchase()
+        public frmPurchase()
         {
             InitializeComponent();
         }

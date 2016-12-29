@@ -1,6 +1,6 @@
 ﻿namespace DepartStoreManagementSystem.UI
 {
-    partial class Product
+    partial class frmProduct
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dataGridViewProduct = new System.Windows.Forms.DataGridView();
             this.buttonDelete = new System.Windows.Forms.Button();
             this.buttonSave = new System.Windows.Forms.Button();
             this.comboBoxCategory = new System.Windows.Forms.ComboBox();
@@ -37,22 +37,23 @@
             this.labelRate = new System.Windows.Forms.Label();
             this.textBoxProductName = new System.Windows.Forms.TextBox();
             this.labelProductName = new System.Windows.Forms.Label();
-            this.textBoxUserID = new System.Windows.Forms.TextBox();
+            this.textBoxProductID = new System.Windows.Forms.TextBox();
             this.labelProductID = new System.Windows.Forms.Label();
             this.labelProducts = new System.Windows.Forms.Label();
             this.textBoxQuantity = new System.Windows.Forms.TextBox();
             this.labelQuantity = new System.Windows.Forms.Label();
             this.textBoxSearch = new System.Windows.Forms.TextBox();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProduct)).BeginInit();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // dataGridViewProduct
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(361, 92);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(501, 258);
-            this.dataGridView1.TabIndex = 0;
+            this.dataGridViewProduct.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewProduct.Location = new System.Drawing.Point(361, 92);
+            this.dataGridViewProduct.Name = "dataGridViewProduct";
+            this.dataGridViewProduct.Size = new System.Drawing.Size(501, 258);
+            this.dataGridViewProduct.TabIndex = 0;
+            this.dataGridViewProduct.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridViewProduct_RowHeaderMouseClick);
             // 
             // buttonDelete
             // 
@@ -65,6 +66,7 @@
             this.buttonDelete.TabIndex = 33;
             this.buttonDelete.Text = "DELETE";
             this.buttonDelete.UseVisualStyleBackColor = false;
+            this.buttonDelete.Click += new System.EventHandler(this.buttonDelete_Click);
             // 
             // buttonSave
             // 
@@ -77,6 +79,7 @@
             this.buttonSave.TabIndex = 32;
             this.buttonSave.Text = "SAVE";
             this.buttonSave.UseVisualStyleBackColor = false;
+            this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
             // 
             // comboBoxCategory
             // 
@@ -140,14 +143,14 @@
             this.labelProductName.TabIndex = 20;
             this.labelProductName.Text = "Product Name";
             // 
-            // textBoxUserID
+            // textBoxProductID
             // 
-            this.textBoxUserID.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxUserID.Location = new System.Drawing.Point(114, 53);
-            this.textBoxUserID.Name = "textBoxUserID";
-            this.textBoxUserID.ReadOnly = true;
-            this.textBoxUserID.Size = new System.Drawing.Size(209, 22);
-            this.textBoxUserID.TabIndex = 19;
+            this.textBoxProductID.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxProductID.Location = new System.Drawing.Point(114, 53);
+            this.textBoxProductID.Name = "textBoxProductID";
+            this.textBoxProductID.ReadOnly = true;
+            this.textBoxProductID.Size = new System.Drawing.Size(209, 22);
+            this.textBoxProductID.TabIndex = 19;
             // 
             // labelProductID
             // 
@@ -196,7 +199,7 @@
             this.textBoxSearch.Size = new System.Drawing.Size(501, 22);
             this.textBoxSearch.TabIndex = 37;
             // 
-            // Product
+            // frmProduct
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -213,12 +216,13 @@
             this.Controls.Add(this.labelRate);
             this.Controls.Add(this.textBoxProductName);
             this.Controls.Add(this.labelProductName);
-            this.Controls.Add(this.textBoxUserID);
+            this.Controls.Add(this.textBoxProductID);
             this.Controls.Add(this.labelProductID);
-            this.Controls.Add(this.dataGridView1);
-            this.Name = "Product";
+            this.Controls.Add(this.dataGridViewProduct);
+            this.Name = "frmProduct";
             this.Text = "Product";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.Load += new System.EventHandler(this.frmProduct_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProduct)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -226,7 +230,7 @@
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dataGridViewProduct;
         private System.Windows.Forms.Button buttonDelete;
         private System.Windows.Forms.Button buttonSave;
         private System.Windows.Forms.ComboBox comboBoxCategory;
@@ -235,7 +239,7 @@
         private System.Windows.Forms.Label labelRate;
         private System.Windows.Forms.TextBox textBoxProductName;
         private System.Windows.Forms.Label labelProductName;
-        private System.Windows.Forms.TextBox textBoxUserID;
+        private System.Windows.Forms.TextBox textBoxProductID;
         private System.Windows.Forms.Label labelProductID;
         private System.Windows.Forms.Label labelProducts;
         private System.Windows.Forms.TextBox textBoxQuantity;
