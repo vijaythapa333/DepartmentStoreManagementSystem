@@ -93,8 +93,10 @@
             this.textBoxTax.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxTax.Location = new System.Drawing.Point(115, 320);
             this.textBoxTax.Name = "textBoxTax";
+            this.textBoxTax.ReadOnly = true;
             this.textBoxTax.Size = new System.Drawing.Size(209, 22);
             this.textBoxTax.TabIndex = 31;
+            this.textBoxTax.Text = "13";
             // 
             // labelTax
             // 
@@ -111,8 +113,10 @@
             this.textBoxDiscount.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxDiscount.Location = new System.Drawing.Point(115, 273);
             this.textBoxDiscount.Name = "textBoxDiscount";
+            this.textBoxDiscount.ReadOnly = true;
             this.textBoxDiscount.Size = new System.Drawing.Size(209, 22);
             this.textBoxDiscount.TabIndex = 29;
+            this.textBoxDiscount.Text = "20";
             // 
             // labelDiscount
             // 
@@ -168,6 +172,7 @@
             this.textBoxProductID.Name = "textBoxProductID";
             this.textBoxProductID.Size = new System.Drawing.Size(209, 22);
             this.textBoxProductID.TabIndex = 23;
+            this.textBoxProductID.TextChanged += new System.EventHandler(this.textBoxProductID_TextChanged);
             // 
             // labelProductID
             // 
@@ -252,6 +257,7 @@
             this.buttonAddnew.TabIndex = 39;
             this.buttonAddnew.Text = "Add New";
             this.buttonAddnew.UseVisualStyleBackColor = true;
+            this.buttonAddnew.Click += new System.EventHandler(this.buttonAddnew_Click);
             // 
             // labelname
             // 
@@ -269,11 +275,11 @@
             this.labelGrandTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelGrandTotal.Location = new System.Drawing.Point(506, 371);
             this.labelGrandTotal.Name = "labelGrandTotal";
-            this.labelGrandTotal.Size = new System.Drawing.Size(45, 20);
+            this.labelGrandTotal.Size = new System.Drawing.Size(40, 20);
             this.labelGrandTotal.TabIndex = 41;
-            this.labelGrandTotal.Text = "1235";
+            this.labelGrandTotal.Text = "0.00";
             // 
-            // Purchase
+            // frmPurchase
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -301,8 +307,9 @@
             this.Controls.Add(this.labelVendorID);
             this.Controls.Add(this.labelPurchase);
             this.Controls.Add(this.dataGridViewPurchase);
-            this.Name = "Purchase";
+            this.Name = "frmPurchase";
             this.Text = "Purchase";
+            this.Load += new System.EventHandler(this.frmPurchase_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPurchase)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

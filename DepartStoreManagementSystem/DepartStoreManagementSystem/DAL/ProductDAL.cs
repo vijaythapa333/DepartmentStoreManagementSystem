@@ -47,6 +47,54 @@ namespace DepartStoreManagementSystem.DAL
             }
             return dt;
         }
+
+        //SElect Specific Product
+        public Product Select_Product(int productID)
+        {
+            Product prod = new Product();
+            //Step 1: Sql Connection
+            SqlConnection conn = new SqlConnection(myconnstr);
+
+            //Step 2: Create DataTAble to hold the data from database
+            DataTable dt = new DataTable();
+            try
+            {
+                //STep 3: Writing SQL Query
+                string sql = "SELECT Product_ID,Product_Name,Category,Rate FROM tbl_Product WHERE Product_ID=@Product_ID";
+
+                //Step 4: Create Sql Command Using Sql and conn
+                SqlCommand cmd = new SqlCommand(sql, conn);
+                cmd.Parameters.AddWithValue("@Product_ID",productID);
+
+                //Step 5: Create sql data Adapter using cmd to get records
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+
+                //Step 6: Open Connection
+                conn.Open();
+
+                //Step 7: Use Adapter to fill dt
+                adapter.Fill(dt);
+
+                //Check if dataTable has records
+                if(dt.Rows.Count>0)
+                {
+                    prod.ProductID = int.Parse(dt.Rows[0]["Product_ID"].ToString());
+                    prod.ProductName = dt.Rows[0]["Product_Name"].ToString();
+                    prod.Category = dt.Rows[0]["Category"].ToString();
+                    prod.Rate = decimal.Parse(dt.Rows[0]["Rate"].ToString());
+                }
+            }
+            catch ( Exception ex)
+            {
+
+            }
+            finally
+            {
+                //Step 7: CLose Connection
+                conn.Close();
+            }
+            return prod;
+        }
         //Insert Product
         public bool Insert_Product(Product p)
         {

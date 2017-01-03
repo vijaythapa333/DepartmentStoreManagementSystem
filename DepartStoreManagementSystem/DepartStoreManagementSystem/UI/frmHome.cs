@@ -28,5 +28,11 @@ namespace DepartStoreManagementSystem.UI
             frmProduct product = new frmProduct();
             product.Show();
         }
+
+        private void purchaseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmPurchase purchase = new frmPurchase();
+            purchase.Show();
+        }
     }
 }

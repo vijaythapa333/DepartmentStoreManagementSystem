@@ -25,3 +25,4 @@ E:\The British College\Deal Projects\DepartmentStoreManagementSystem\DepartStore
 E:\The British College\Deal Projects\DepartmentStoreManagementSystem\DepartStoreManagementSystem\DepartStoreManagementSystem\obj\Debug\DepartStoreManagementSystem.UI.frmSale.resources
 E:\The British College\Deal Projects\DepartmentStoreManagementSystem\DepartStoreManagementSystem\DepartStoreManagementSystem\obj\Debug\DepartStoreManagementSystem.UI.frmUser.resources
 E:\The British College\Deal Projects\DepartmentStoreManagementSystem\DepartStoreManagementSystem\DepartStoreManagementSystem\obj\Debug\DepartStoreManagementSystem.UI.frmHome.resources
+E:\The British College\Deal Projects\DepartmentStoreManagementSystem\DepartStoreManagementSystem\DepartStoreManagementSystem\obj\Debug\DepartStoreManagementSystem.csprojResolveAssemblyReference.cache
