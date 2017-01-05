@@ -77,6 +77,7 @@
             this.buttonSave.TabIndex = 34;
             this.buttonSave.Text = "SAVE";
             this.buttonSave.UseVisualStyleBackColor = false;
+            this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
             // 
             // labelTotal
             // 
@@ -219,6 +220,7 @@
             this.dataGridViewPurchase.Name = "dataGridViewPurchase";
             this.dataGridViewPurchase.Size = new System.Drawing.Size(529, 272);
             this.dataGridViewPurchase.TabIndex = 18;
+            this.dataGridViewPurchase.RowHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridViewPurchase_RowHeaderMouseDoubleClick);
             // 
             // labelVendorName
             // 
@@ -245,6 +247,7 @@
             this.textBoxTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxTotal.Location = new System.Drawing.Point(115, 365);
             this.textBoxTotal.Name = "textBoxTotal";
+            this.textBoxTotal.ReadOnly = true;
             this.textBoxTotal.Size = new System.Drawing.Size(209, 22);
             this.textBoxTotal.TabIndex = 38;
             // 

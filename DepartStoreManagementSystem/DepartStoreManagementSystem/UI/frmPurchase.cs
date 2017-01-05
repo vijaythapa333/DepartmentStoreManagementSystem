@@ -8,6 +8,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Transactions;
 using System.Windows.Forms;
 
 namespace DepartStoreManagementSystem.UI
@@ -16,9 +17,10 @@ namespace DepartStoreManagementSystem.UI
     {
         ProductDAL productDAL = new ProductDAL();
         UserDAL userDAL = new UserDAL();
+        TransactionDAL transactionDAL = new TransactionDAL();
 
         //Data TAble for Gridview
-        DataTable dtPurchase = new DataTable();
+        DataTable dtTransaction = new DataTable();
 
         public frmPurchase()
         {
@@ -28,13 +30,13 @@ namespace DepartStoreManagementSystem.UI
         private void frmPurchase_Load(object sender, EventArgs e)
         {
             //Add Columns to dataTable dtPurchase
-            dtPurchase.Columns.Add("Product_ID");
-            dtPurchase.Columns.Add("Product_Name");
-            dtPurchase.Columns.Add("Rate");
-            dtPurchase.Columns.Add("Quantity");
-            dtPurchase.Columns.Add("Discount");
-            dtPurchase.Columns.Add("Tax");
-            dtPurchase.Columns.Add("Total");
+            dtTransaction.Columns.Add("Product_ID");
+            dtTransaction.Columns.Add("Product_Name");
+            dtTransaction.Columns.Add("Rate");
+            dtTransaction.Columns.Add("Quantity");
+            dtTransaction.Columns.Add("Discount");
+            dtTransaction.Columns.Add("Tax");
+            dtTransaction.Columns.Add("Total");
         }
 
         private void textBoxProductID_TextChanged(object sender, EventArgs e)
@@ -75,10 +77,10 @@ namespace DepartStoreManagementSystem.UI
             labelGrandTotal.Text = grandtotal.ToString();
 
             //Add Rows to DAta Table
-            dtPurchase.Rows.Add(Product_ID,Product_Name,Rate,Qty,DiscountAmount,TaxAmount,Total);
+            dtTransaction.Rows.Add(Product_ID,Product_Name,Rate,Qty,DiscountAmount,TaxAmount,Total);
 
             //Show dtPurchase to gridview
-            dataGridViewPurchase.DataSource = dtPurchase;
+            dataGridViewPurchase.DataSource = dtTransaction;
 
             //Clear for Next Add
             clear();
@@ -90,6 +92,88 @@ namespace DepartStoreManagementSystem.UI
             textBoxRate.Text = "";
             textBoxQuantity.Text = "";
             textBoxTotal.Text = "";
+        }
+
+        private void buttonSave_Click(object sender, EventArgs e)
+        {
+            //MessageBox.Show("I am Clicked");
+            TransactionClass transaction = new TransactionClass();
+            transaction.TransactionType = labelPurchase.Text.Trim();
+            transaction.TransactioDate = DateTime.Now;
+            transaction.SysUser = "Admin";
+            transaction.GrandTotal = decimal.Parse(labelGrandTotal.Text);
+            transaction.TransactionDetails = dtTransaction;
+
+            bool success = false;
+            using (TransactionScope scope = new TransactionScope())
+            {
+                int transactionID = -1;
+                bool w = transactionDAL.Insert_Transaction(transaction, out transactionID);//Error in this section
+
+                for(int i=0;i<dtTransaction.Rows.Count;i++)
+                {
+                    int ProductID = int.Parse(dtTransaction.Rows[i][0].ToString());
+                    //string ProductName = dtTransaction.Rows[i][1].ToString();
+                    decimal Rate = decimal.Parse(dtTransaction.Rows[i][2].ToString());
+                    decimal Quantity = decimal.Parse(dtTransaction.Rows[i][3].ToString());
+                    decimal Discount = decimal.Parse(dtTransaction.Rows[i][4].ToString());
+                    decimal Tax = decimal.Parse(dtTransaction.Rows[i][5].ToString());
+                    decimal Total = decimal.Parse(dtTransaction.Rows[i][6].ToString());
+
+                    TransactionDetails td = new TransactionDetails();
+                    td.ProductID = ProductID;
+                    td.Rate = Rate;
+                    td.Quantity = Quantity;
+                    td.Discount = Discount;
+                    td.Tax = Tax;
+                    td.Total = Total;
+                    //bool x = invDAL.DecreaseInventory(ProductID, Quantity); //For Decreasing Product Quantity
+                    bool y = transactionDAL.Insert_TransactionDetails(td);
+                    success = w && y; // DO this after solving error
+                    //success = y; //Comment this after solving error
+                    
+                }
+                if (success == true)
+                {
+                    scope.Complete();
+                    MessageBox.Show("Purchase Transaction Completed.");
+                }
+                else
+                {
+                    MessageBox.Show("Purchase Transaction Failed.");
+                }
+            }
+            //Print Function Here
+            //MessageBox.Show("Print Me");
+        }
+
+        private void dataGridViewPurchase_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            int rowIndex = e.RowIndex;
+
+            int ProductId = int.Parse(dataGridViewPurchase.Rows[rowIndex].Cells[0].Value.ToString());
+            string ProductName = dataGridViewPurchase.Rows[rowIndex].Cells[1].Value.ToString();
+            decimal Rate=decimal.Parse(dataGridViewPurchase.Rows[rowIndex].Cells[2].Value.ToString());
+            decimal Quantity = decimal.Parse(dataGridViewPurchase.Rows[rowIndex].Cells[3].Value.ToString());
+            decimal Discount = decimal.Parse(dataGridViewPurchase.Rows[rowIndex].Cells[4].Value.ToString());
+            decimal Tax = decimal.Parse(dataGridViewPurchase.Rows[rowIndex].Cells[5].Value.ToString());
+            decimal Total = decimal.Parse(dataGridViewPurchase.Rows[rowIndex].Cells[6].Value.ToString());
+
+            //Showing to UI
+            textBoxProductID.Text = ProductId.ToString();
+            labelProductName.Text = ProductName;
+            textBoxRate.Text = Rate.ToString();
+            textBoxQuantity.Text = Quantity.ToString();
+            textBoxTotal.Text = Total.ToString();
+
+            //Decrease from Grand Total
+            decimal GrandTotal = decimal.Parse(labelGrandTotal.Text);
+            GrandTotal = GrandTotal - Total;
+            labelGrandTotal.Text = GrandTotal.ToString();
+            //Remove from Data Gridview
+            dtTransaction.Rows.RemoveAt(rowIndex);
+            //Gridview Bind
+            dataGridViewPurchase.DataSource = dtTransaction;
         }
     }
 }

@@ -36,6 +36,7 @@
     <Reference Include="System" />
     <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Transactions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -48,8 +49,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class\Product.cs" />
+    <Compile Include="Class\TransactionClass.cs" />
     <Compile Include="Class\User.cs" />
     <Compile Include="DAL\ProductDAL.cs" />
+    <Compile Include="DAL\TransactionDAL.cs" />
     <Compile Include="DAL\UserDAL.cs" />
     <Compile Include="UI\frmHome.cs">
       <SubType>Form</SubType>
