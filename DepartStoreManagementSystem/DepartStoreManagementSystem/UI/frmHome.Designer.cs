@@ -247,7 +247,8 @@
             // 
             this.salesToolStripMenuItem.Name = "salesToolStripMenuItem";
             this.salesToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.salesToolStripMenuItem.Text = "Sales";
+            this.salesToolStripMenuItem.Text = "Sale";
+            this.salesToolStripMenuItem.Click += new System.EventHandler(this.salesToolStripMenuItem_Click);
             // 
             // logOutToolStripMenuItem
             // 

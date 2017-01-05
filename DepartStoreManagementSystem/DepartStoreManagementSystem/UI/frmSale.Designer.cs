@@ -50,8 +50,8 @@
             this.textBoxCustomerID = new System.Windows.Forms.TextBox();
             this.labelCustomerID = new System.Windows.Forms.Label();
             this.labelSale = new System.Windows.Forms.Label();
-            this.dataGridViewPurchase = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPurchase)).BeginInit();
+            this.dataGridViewSale = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSale)).BeginInit();
             this.SuspendLayout();
             // 
             // labelGrandTotal
@@ -60,9 +60,9 @@
             this.labelGrandTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelGrandTotal.Location = new System.Drawing.Point(507, 375);
             this.labelGrandTotal.Name = "labelGrandTotal";
-            this.labelGrandTotal.Size = new System.Drawing.Size(45, 20);
+            this.labelGrandTotal.Size = new System.Drawing.Size(40, 20);
             this.labelGrandTotal.TabIndex = 64;
-            this.labelGrandTotal.Text = "1235";
+            this.labelGrandTotal.Text = "0.00";
             // 
             // labelname
             // 
@@ -83,12 +83,14 @@
             this.buttonAddnew.TabIndex = 62;
             this.buttonAddnew.Text = "Add New";
             this.buttonAddnew.UseVisualStyleBackColor = true;
+            this.buttonAddnew.Click += new System.EventHandler(this.buttonAddnew_Click);
             // 
             // textBoxTotal
             // 
             this.textBoxTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxTotal.Location = new System.Drawing.Point(116, 369);
             this.textBoxTotal.Name = "textBoxTotal";
+            this.textBoxTotal.ReadOnly = true;
             this.textBoxTotal.Size = new System.Drawing.Size(209, 22);
             this.textBoxTotal.TabIndex = 61;
             // 
@@ -135,6 +137,7 @@
             this.buttonSave.TabIndex = 57;
             this.buttonSave.Text = "SAVE";
             this.buttonSave.UseVisualStyleBackColor = false;
+            this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
             // 
             // labelTotal
             // 
@@ -151,8 +154,10 @@
             this.textBoxTax.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxTax.Location = new System.Drawing.Point(116, 324);
             this.textBoxTax.Name = "textBoxTax";
+            this.textBoxTax.ReadOnly = true;
             this.textBoxTax.Size = new System.Drawing.Size(209, 22);
             this.textBoxTax.TabIndex = 55;
+            this.textBoxTax.Text = "13";
             // 
             // labelTax
             // 
@@ -169,8 +174,10 @@
             this.textBoxDiscount.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxDiscount.Location = new System.Drawing.Point(116, 277);
             this.textBoxDiscount.Name = "textBoxDiscount";
+            this.textBoxDiscount.ReadOnly = true;
             this.textBoxDiscount.Size = new System.Drawing.Size(209, 22);
             this.textBoxDiscount.TabIndex = 53;
+            this.textBoxDiscount.Text = "20";
             // 
             // labelDiscount
             // 
@@ -226,6 +233,7 @@
             this.textBoxProductID.Name = "textBoxProductID";
             this.textBoxProductID.Size = new System.Drawing.Size(209, 22);
             this.textBoxProductID.TabIndex = 47;
+            this.textBoxProductID.TextChanged += new System.EventHandler(this.textBoxProductID_TextChanged);
             // 
             // labelProductID
             // 
@@ -265,15 +273,16 @@
             this.labelSale.TabIndex = 43;
             this.labelSale.Text = "Sale";
             // 
-            // dataGridViewPurchase
+            // dataGridViewSale
             // 
-            this.dataGridViewPurchase.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewPurchase.Location = new System.Drawing.Point(388, 94);
-            this.dataGridViewPurchase.Name = "dataGridViewPurchase";
-            this.dataGridViewPurchase.Size = new System.Drawing.Size(529, 272);
-            this.dataGridViewPurchase.TabIndex = 42;
+            this.dataGridViewSale.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewSale.Location = new System.Drawing.Point(388, 94);
+            this.dataGridViewSale.Name = "dataGridViewSale";
+            this.dataGridViewSale.Size = new System.Drawing.Size(529, 272);
+            this.dataGridViewSale.TabIndex = 42;
+            this.dataGridViewSale.RowHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridViewSale_RowHeaderMouseDoubleClick);
             // 
-            // Sale
+            // frmSale
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -300,10 +309,11 @@
             this.Controls.Add(this.textBoxCustomerID);
             this.Controls.Add(this.labelCustomerID);
             this.Controls.Add(this.labelSale);
-            this.Controls.Add(this.dataGridViewPurchase);
-            this.Name = "Sale";
+            this.Controls.Add(this.dataGridViewSale);
+            this.Name = "frmSale";
             this.Text = "Sale";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPurchase)).EndInit();
+            this.Load += new System.EventHandler(this.frmSale_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSale)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -333,6 +343,6 @@
         private System.Windows.Forms.TextBox textBoxCustomerID;
         private System.Windows.Forms.Label labelCustomerID;
         private System.Windows.Forms.Label labelSale;
-        private System.Windows.Forms.DataGridView dataGridViewPurchase;
+        private System.Windows.Forms.DataGridView dataGridViewSale;
     }
 }
