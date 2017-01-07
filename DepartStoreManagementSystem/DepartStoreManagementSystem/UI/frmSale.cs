@@ -18,6 +18,7 @@ namespace DepartStoreManagementSystem.UI
         ProductDAL productDAL = new ProductDAL();
         UserDAL userDAL = new UserDAL();
         TransactionDAL transactionDAL = new TransactionDAL();
+        InventoryDAL invDAL = new InventoryDAL();
 
         //Data TAble for Gridview
         DataTable dtTransaction = new DataTable();
@@ -126,9 +127,9 @@ namespace DepartStoreManagementSystem.UI
                     td.Discount = Discount;
                     td.Tax = Tax;
                     td.Total = Total;
-                    //bool x = invDAL.DecreaseInventory(ProductID, Quantity); //For Decreasing Product Quantity
+                    bool x = invDAL.Decrease_Inventory(ProductID, Quantity); //For Decreasing Product Quantity
                     bool y = transactionDAL.Insert_TransactionDetails(td);
-                    success = w && y; // DO this after solving error
+                    success = w && x && y; // DO this after solving error
                                       //success = y; //Comment this after solving error
 
                 }
@@ -173,6 +174,21 @@ namespace DepartStoreManagementSystem.UI
             dtTransaction.Rows.RemoveAt(rowIndex);
             //Gridview Bind
             dataGridViewSale.DataSource = dtTransaction;
+        }
+
+        Bitmap bmp;
+        private void printDocumentSale_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+            e.Graphics.DrawImage(bmp,0,0);
+        }
+
+        private void buttonPrint_Click(object sender, EventArgs e)
+        {
+            Graphics g = this.CreateGraphics();
+            bmp = new Bitmap(this.Size.Width, this.Size.Height, g);
+            Graphics mg = Graphics.FromImage(bmp);
+            mg.CopyFromScreen(this.Location.X, this.Location.Y, 0, 0, this.Size);
+            printPreviewDialogSale.ShowDialog();
         }
     }
 }

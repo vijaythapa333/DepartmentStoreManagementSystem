@@ -28,13 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmSale));
             this.labelGrandTotal = new System.Windows.Forms.Label();
             this.labelname = new System.Windows.Forms.Label();
             this.buttonAddnew = new System.Windows.Forms.Button();
             this.textBoxTotal = new System.Windows.Forms.TextBox();
             this.labelProductName = new System.Windows.Forms.Label();
             this.labelCustomerName = new System.Windows.Forms.Label();
-            this.buttonDelete = new System.Windows.Forms.Button();
+            this.buttonPrint = new System.Windows.Forms.Button();
             this.buttonSave = new System.Windows.Forms.Button();
             this.labelTotal = new System.Windows.Forms.Label();
             this.textBoxTax = new System.Windows.Forms.TextBox();
@@ -51,6 +52,8 @@
             this.labelCustomerID = new System.Windows.Forms.Label();
             this.labelSale = new System.Windows.Forms.Label();
             this.dataGridViewSale = new System.Windows.Forms.DataGridView();
+            this.printDocumentSale = new System.Drawing.Printing.PrintDocument();
+            this.printPreviewDialogSale = new System.Windows.Forms.PrintPreviewDialog();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSale)).BeginInit();
             this.SuspendLayout();
             // 
@@ -114,17 +117,18 @@
             this.labelCustomerName.TabIndex = 59;
             this.labelCustomerName.Text = "[ Customer Name ]";
             // 
-            // buttonDelete
+            // buttonPrint
             // 
-            this.buttonDelete.BackColor = System.Drawing.Color.Firebrick;
-            this.buttonDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonDelete.ForeColor = System.Drawing.Color.White;
-            this.buttonDelete.Location = new System.Drawing.Point(347, 413);
-            this.buttonDelete.Name = "buttonDelete";
-            this.buttonDelete.Size = new System.Drawing.Size(209, 44);
-            this.buttonDelete.TabIndex = 58;
-            this.buttonDelete.Text = "DELETE";
-            this.buttonDelete.UseVisualStyleBackColor = false;
+            this.buttonPrint.BackColor = System.Drawing.Color.Firebrick;
+            this.buttonPrint.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonPrint.ForeColor = System.Drawing.Color.White;
+            this.buttonPrint.Location = new System.Drawing.Point(347, 413);
+            this.buttonPrint.Name = "buttonPrint";
+            this.buttonPrint.Size = new System.Drawing.Size(209, 44);
+            this.buttonPrint.TabIndex = 58;
+            this.buttonPrint.Text = "PRINT";
+            this.buttonPrint.UseVisualStyleBackColor = false;
+            this.buttonPrint.Click += new System.EventHandler(this.buttonPrint_Click);
             // 
             // buttonSave
             // 
@@ -282,6 +286,21 @@
             this.dataGridViewSale.TabIndex = 42;
             this.dataGridViewSale.RowHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridViewSale_RowHeaderMouseDoubleClick);
             // 
+            // printDocumentSale
+            // 
+            this.printDocumentSale.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocumentSale_PrintPage);
+            // 
+            // printPreviewDialogSale
+            // 
+            this.printPreviewDialogSale.AutoScrollMargin = new System.Drawing.Size(0, 0);
+            this.printPreviewDialogSale.AutoScrollMinSize = new System.Drawing.Size(0, 0);
+            this.printPreviewDialogSale.ClientSize = new System.Drawing.Size(400, 300);
+            this.printPreviewDialogSale.Document = this.printDocumentSale;
+            this.printPreviewDialogSale.Enabled = true;
+            this.printPreviewDialogSale.Icon = ((System.Drawing.Icon)(resources.GetObject("printPreviewDialogSale.Icon")));
+            this.printPreviewDialogSale.Name = "printPreviewDialogSale";
+            this.printPreviewDialogSale.Visible = false;
+            // 
             // frmSale
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -293,7 +312,7 @@
             this.Controls.Add(this.textBoxTotal);
             this.Controls.Add(this.labelProductName);
             this.Controls.Add(this.labelCustomerName);
-            this.Controls.Add(this.buttonDelete);
+            this.Controls.Add(this.buttonPrint);
             this.Controls.Add(this.buttonSave);
             this.Controls.Add(this.labelTotal);
             this.Controls.Add(this.textBoxTax);
@@ -327,7 +346,7 @@
         private System.Windows.Forms.TextBox textBoxTotal;
         private System.Windows.Forms.Label labelProductName;
         private System.Windows.Forms.Label labelCustomerName;
-        private System.Windows.Forms.Button buttonDelete;
+        private System.Windows.Forms.Button buttonPrint;
         private System.Windows.Forms.Button buttonSave;
         private System.Windows.Forms.Label labelTotal;
         private System.Windows.Forms.TextBox textBoxTax;
@@ -344,5 +363,7 @@
         private System.Windows.Forms.Label labelCustomerID;
         private System.Windows.Forms.Label labelSale;
         private System.Windows.Forms.DataGridView dataGridViewSale;
+        private System.Drawing.Printing.PrintDocument printDocumentSale;
+        private System.Windows.Forms.PrintPreviewDialog printPreviewDialogSale;
     }
 }

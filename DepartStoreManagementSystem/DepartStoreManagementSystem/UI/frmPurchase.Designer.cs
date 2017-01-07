@@ -28,7 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.buttonDelete = new System.Windows.Forms.Button();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPurchase));
+            this.buttonPrint = new System.Windows.Forms.Button();
             this.buttonSave = new System.Windows.Forms.Button();
             this.labelTotal = new System.Windows.Forms.Label();
             this.textBoxTax = new System.Windows.Forms.TextBox();
@@ -51,20 +52,23 @@
             this.buttonAddnew = new System.Windows.Forms.Button();
             this.labelname = new System.Windows.Forms.Label();
             this.labelGrandTotal = new System.Windows.Forms.Label();
+            this.printDocumentPurchase = new System.Drawing.Printing.PrintDocument();
+            this.printPreviewDialogPurchase = new System.Windows.Forms.PrintPreviewDialog();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPurchase)).BeginInit();
             this.SuspendLayout();
             // 
-            // buttonDelete
+            // buttonPrint
             // 
-            this.buttonDelete.BackColor = System.Drawing.Color.Firebrick;
-            this.buttonDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonDelete.ForeColor = System.Drawing.Color.White;
-            this.buttonDelete.Location = new System.Drawing.Point(346, 409);
-            this.buttonDelete.Name = "buttonDelete";
-            this.buttonDelete.Size = new System.Drawing.Size(209, 44);
-            this.buttonDelete.TabIndex = 35;
-            this.buttonDelete.Text = "DELETE";
-            this.buttonDelete.UseVisualStyleBackColor = false;
+            this.buttonPrint.BackColor = System.Drawing.Color.Firebrick;
+            this.buttonPrint.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonPrint.ForeColor = System.Drawing.Color.White;
+            this.buttonPrint.Location = new System.Drawing.Point(346, 409);
+            this.buttonPrint.Name = "buttonPrint";
+            this.buttonPrint.Size = new System.Drawing.Size(209, 44);
+            this.buttonPrint.TabIndex = 35;
+            this.buttonPrint.Text = "PRINT";
+            this.buttonPrint.UseVisualStyleBackColor = false;
+            this.buttonPrint.Click += new System.EventHandler(this.buttonPrint_Click);
             // 
             // buttonSave
             // 
@@ -282,6 +286,21 @@
             this.labelGrandTotal.TabIndex = 41;
             this.labelGrandTotal.Text = "0.00";
             // 
+            // printDocumentPurchase
+            // 
+            this.printDocumentPurchase.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocumentPurchase_PrintPage);
+            // 
+            // printPreviewDialogPurchase
+            // 
+            this.printPreviewDialogPurchase.AutoScrollMargin = new System.Drawing.Size(0, 0);
+            this.printPreviewDialogPurchase.AutoScrollMinSize = new System.Drawing.Size(0, 0);
+            this.printPreviewDialogPurchase.ClientSize = new System.Drawing.Size(400, 300);
+            this.printPreviewDialogPurchase.Document = this.printDocumentPurchase;
+            this.printPreviewDialogPurchase.Enabled = true;
+            this.printPreviewDialogPurchase.Icon = ((System.Drawing.Icon)(resources.GetObject("printPreviewDialogPurchase.Icon")));
+            this.printPreviewDialogPurchase.Name = "printPreviewDialogPurchase";
+            this.printPreviewDialogPurchase.Visible = false;
+            // 
             // frmPurchase
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -293,7 +312,7 @@
             this.Controls.Add(this.textBoxTotal);
             this.Controls.Add(this.labelProductName);
             this.Controls.Add(this.labelVendorName);
-            this.Controls.Add(this.buttonDelete);
+            this.Controls.Add(this.buttonPrint);
             this.Controls.Add(this.buttonSave);
             this.Controls.Add(this.labelTotal);
             this.Controls.Add(this.textBoxTax);
@@ -321,7 +340,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Button buttonDelete;
+        private System.Windows.Forms.Button buttonPrint;
         private System.Windows.Forms.Button buttonSave;
         private System.Windows.Forms.Label labelTotal;
         private System.Windows.Forms.TextBox textBoxTax;
@@ -344,5 +363,7 @@
         private System.Windows.Forms.Button buttonAddnew;
         private System.Windows.Forms.Label labelname;
         private System.Windows.Forms.Label labelGrandTotal;
+        private System.Drawing.Printing.PrintDocument printDocumentPurchase;
+        private System.Windows.Forms.PrintPreviewDialog printPreviewDialogPurchase;
     }
 }

@@ -48,9 +48,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Class\Inventory.cs" />
     <Compile Include="Class\Product.cs" />
     <Compile Include="Class\TransactionClass.cs" />
     <Compile Include="Class\User.cs" />
+    <Compile Include="DAL\InventoryDAL.cs" />
     <Compile Include="DAL\ProductDAL.cs" />
     <Compile Include="DAL\TransactionDAL.cs" />
     <Compile Include="DAL\UserDAL.cs" />
