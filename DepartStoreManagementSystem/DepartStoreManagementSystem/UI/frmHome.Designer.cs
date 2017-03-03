@@ -43,6 +43,7 @@
             this.purchaseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.logOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.label1 = new System.Windows.Forms.Label();
             this.panelProduct.SuspendLayout();
             this.panelUser.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -53,7 +54,7 @@
             this.panelProduct.BackColor = System.Drawing.Color.SteelBlue;
             this.panelProduct.Controls.Add(this.labelProductName);
             this.panelProduct.Controls.Add(this.labelCountProduct);
-            this.panelProduct.Location = new System.Drawing.Point(668, 104);
+            this.panelProduct.Location = new System.Drawing.Point(683, 258);
             this.panelProduct.Name = "panelProduct";
             this.panelProduct.Size = new System.Drawing.Size(255, 55);
             this.panelProduct.TabIndex = 8;
@@ -85,7 +86,7 @@
             this.panelUser.BackColor = System.Drawing.Color.SteelBlue;
             this.panelUser.Controls.Add(this.labelName);
             this.panelUser.Controls.Add(this.labelCountUser);
-            this.panelUser.Location = new System.Drawing.Point(411, 104);
+            this.panelUser.Location = new System.Drawing.Point(392, 258);
             this.panelUser.Name = "panelUser";
             this.panelUser.Size = new System.Drawing.Size(185, 55);
             this.panelUser.TabIndex = 7;
@@ -117,7 +118,7 @@
             this.labelUser.AutoSize = true;
             this.labelUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelUser.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.labelUser.Location = new System.Drawing.Point(612, 45);
+            this.labelUser.Location = new System.Drawing.Point(605, 215);
             this.labelUser.Name = "labelUser";
             this.labelUser.Size = new System.Drawing.Size(49, 24);
             this.labelUser.TabIndex = 6;
@@ -187,11 +188,23 @@
             this.logOutToolStripMenuItem.Text = "Log Out";
             this.logOutToolStripMenuItem.Click += new System.EventHandler(this.logOutToolStripMenuItem_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.SteelBlue;
+            this.label1.Location = new System.Drawing.Point(331, 160);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(656, 31);
+            this.label1.TabIndex = 12;
+            this.label1.Text = "DEPARTMENT STORE MANAGEMENT SYSTEM";
+            // 
             // frmHome
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1249, 426);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.panelProduct);
             this.Controls.Add(this.panelUser);
             this.Controls.Add(this.labelUser);
@@ -229,5 +242,6 @@
         private System.Windows.Forms.ToolStripMenuItem purchaseToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem salesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem logOutToolStripMenuItem;
+        private System.Windows.Forms.Label label1;
     }
 }
