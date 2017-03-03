@@ -148,5 +148,24 @@ namespace DepartStoreManagementSystem.UI
                 MessageBox.Show("Please Select the Product FIrst.");
             }
         }
+
+        private void textBoxSearch_TextChanged(object sender, EventArgs e)
+        {
+            //Get User Input
+            string keywords = textBoxSearch.Text;
+            if(keywords!=null)
+            {
+                ProductDAL dal = new ProductDAL();
+                DataTable dt = dal.Select_Produc_By_Keywordst(keywords);
+                dataGridViewProduct.DataSource = dt;
+            }
+            else
+            {
+                ProductDAL dal = new ProductDAL();
+                DataTable dt = dal.Select_Product();
+                dataGridViewProduct.DataSource = dt;
+            }
+            
+        }
     }
 }

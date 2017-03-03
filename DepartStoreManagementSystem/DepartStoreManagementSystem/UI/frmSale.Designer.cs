@@ -34,7 +34,6 @@
             this.buttonAddnew = new System.Windows.Forms.Button();
             this.textBoxTotal = new System.Windows.Forms.TextBox();
             this.labelProductName = new System.Windows.Forms.Label();
-            this.labelCustomerName = new System.Windows.Forms.Label();
             this.buttonPrint = new System.Windows.Forms.Button();
             this.buttonSave = new System.Windows.Forms.Button();
             this.labelTotal = new System.Windows.Forms.Label();
@@ -48,8 +47,6 @@
             this.labelRate = new System.Windows.Forms.Label();
             this.textBoxProductID = new System.Windows.Forms.TextBox();
             this.labelProductID = new System.Windows.Forms.Label();
-            this.textBoxCustomerID = new System.Windows.Forms.TextBox();
-            this.labelCustomerID = new System.Windows.Forms.Label();
             this.labelSale = new System.Windows.Forms.Label();
             this.dataGridViewSale = new System.Windows.Forms.DataGridView();
             this.printDocumentSale = new System.Drawing.Printing.PrintDocument();
@@ -91,7 +88,7 @@
             // textBoxTotal
             // 
             this.textBoxTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxTotal.Location = new System.Drawing.Point(116, 369);
+            this.textBoxTotal.Location = new System.Drawing.Point(116, 333);
             this.textBoxTotal.Name = "textBoxTotal";
             this.textBoxTotal.ReadOnly = true;
             this.textBoxTotal.Size = new System.Drawing.Size(209, 22);
@@ -101,21 +98,11 @@
             // 
             this.labelProductName.AutoSize = true;
             this.labelProductName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelProductName.Location = new System.Drawing.Point(113, 170);
+            this.labelProductName.Location = new System.Drawing.Point(113, 134);
             this.labelProductName.Name = "labelProductName";
             this.labelProductName.Size = new System.Drawing.Size(108, 16);
             this.labelProductName.TabIndex = 60;
             this.labelProductName.Text = "[ Product Name ]";
-            // 
-            // labelCustomerName
-            // 
-            this.labelCustomerName.AutoSize = true;
-            this.labelCustomerName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelCustomerName.Location = new System.Drawing.Point(113, 94);
-            this.labelCustomerName.Name = "labelCustomerName";
-            this.labelCustomerName.Size = new System.Drawing.Size(119, 16);
-            this.labelCustomerName.TabIndex = 59;
-            this.labelCustomerName.Text = "[ Customer Name ]";
             // 
             // buttonPrint
             // 
@@ -147,7 +134,7 @@
             // 
             this.labelTotal.AutoSize = true;
             this.labelTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTotal.Location = new System.Drawing.Point(16, 372);
+            this.labelTotal.Location = new System.Drawing.Point(16, 336);
             this.labelTotal.Name = "labelTotal";
             this.labelTotal.Size = new System.Drawing.Size(39, 16);
             this.labelTotal.TabIndex = 56;
@@ -156,7 +143,7 @@
             // textBoxTax
             // 
             this.textBoxTax.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxTax.Location = new System.Drawing.Point(116, 324);
+            this.textBoxTax.Location = new System.Drawing.Point(116, 288);
             this.textBoxTax.Name = "textBoxTax";
             this.textBoxTax.ReadOnly = true;
             this.textBoxTax.Size = new System.Drawing.Size(209, 22);
@@ -176,7 +163,7 @@
             // textBoxDiscount
             // 
             this.textBoxDiscount.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxDiscount.Location = new System.Drawing.Point(116, 277);
+            this.textBoxDiscount.Location = new System.Drawing.Point(116, 241);
             this.textBoxDiscount.Name = "textBoxDiscount";
             this.textBoxDiscount.ReadOnly = true;
             this.textBoxDiscount.Size = new System.Drawing.Size(209, 22);
@@ -187,7 +174,7 @@
             // 
             this.labelDiscount.AutoSize = true;
             this.labelDiscount.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelDiscount.Location = new System.Drawing.Point(16, 283);
+            this.labelDiscount.Location = new System.Drawing.Point(16, 247);
             this.labelDiscount.Name = "labelDiscount";
             this.labelDiscount.Size = new System.Drawing.Size(60, 16);
             this.labelDiscount.TabIndex = 52;
@@ -196,7 +183,7 @@
             // textBoxQuantity
             // 
             this.textBoxQuantity.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxQuantity.Location = new System.Drawing.Point(116, 241);
+            this.textBoxQuantity.Location = new System.Drawing.Point(116, 205);
             this.textBoxQuantity.Name = "textBoxQuantity";
             this.textBoxQuantity.Size = new System.Drawing.Size(209, 22);
             this.textBoxQuantity.TabIndex = 51;
@@ -205,7 +192,7 @@
             // 
             this.labelQty.AutoSize = true;
             this.labelQty.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelQty.Location = new System.Drawing.Point(16, 241);
+            this.labelQty.Location = new System.Drawing.Point(16, 205);
             this.labelQty.Name = "labelQty";
             this.labelQty.Size = new System.Drawing.Size(56, 16);
             this.labelQty.TabIndex = 50;
@@ -214,7 +201,7 @@
             // textBoxRate
             // 
             this.textBoxRate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxRate.Location = new System.Drawing.Point(116, 202);
+            this.textBoxRate.Location = new System.Drawing.Point(116, 166);
             this.textBoxRate.Name = "textBoxRate";
             this.textBoxRate.ReadOnly = true;
             this.textBoxRate.Size = new System.Drawing.Size(209, 22);
@@ -233,7 +220,7 @@
             // textBoxProductID
             // 
             this.textBoxProductID.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxProductID.Location = new System.Drawing.Point(116, 130);
+            this.textBoxProductID.Location = new System.Drawing.Point(116, 94);
             this.textBoxProductID.Name = "textBoxProductID";
             this.textBoxProductID.Size = new System.Drawing.Size(209, 22);
             this.textBoxProductID.TabIndex = 47;
@@ -243,29 +230,11 @@
             // 
             this.labelProductID.AutoSize = true;
             this.labelProductID.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelProductID.Location = new System.Drawing.Point(16, 130);
+            this.labelProductID.Location = new System.Drawing.Point(16, 94);
             this.labelProductID.Name = "labelProductID";
             this.labelProductID.Size = new System.Drawing.Size(70, 16);
             this.labelProductID.TabIndex = 46;
             this.labelProductID.Text = "Product ID";
-            // 
-            // textBoxCustomerID
-            // 
-            this.textBoxCustomerID.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxCustomerID.Location = new System.Drawing.Point(116, 55);
-            this.textBoxCustomerID.Name = "textBoxCustomerID";
-            this.textBoxCustomerID.Size = new System.Drawing.Size(209, 22);
-            this.textBoxCustomerID.TabIndex = 45;
-            // 
-            // labelCustomerID
-            // 
-            this.labelCustomerID.AutoSize = true;
-            this.labelCustomerID.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelCustomerID.Location = new System.Drawing.Point(16, 55);
-            this.labelCustomerID.Name = "labelCustomerID";
-            this.labelCustomerID.Size = new System.Drawing.Size(81, 16);
-            this.labelCustomerID.TabIndex = 44;
-            this.labelCustomerID.Text = "Customer ID";
             // 
             // labelSale
             // 
@@ -282,7 +251,7 @@
             this.dataGridViewSale.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewSale.Location = new System.Drawing.Point(388, 94);
             this.dataGridViewSale.Name = "dataGridViewSale";
-            this.dataGridViewSale.Size = new System.Drawing.Size(529, 272);
+            this.dataGridViewSale.Size = new System.Drawing.Size(529, 261);
             this.dataGridViewSale.TabIndex = 42;
             this.dataGridViewSale.RowHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridViewSale_RowHeaderMouseDoubleClick);
             // 
@@ -311,7 +280,6 @@
             this.Controls.Add(this.buttonAddnew);
             this.Controls.Add(this.textBoxTotal);
             this.Controls.Add(this.labelProductName);
-            this.Controls.Add(this.labelCustomerName);
             this.Controls.Add(this.buttonPrint);
             this.Controls.Add(this.buttonSave);
             this.Controls.Add(this.labelTotal);
@@ -325,11 +293,10 @@
             this.Controls.Add(this.labelRate);
             this.Controls.Add(this.textBoxProductID);
             this.Controls.Add(this.labelProductID);
-            this.Controls.Add(this.textBoxCustomerID);
-            this.Controls.Add(this.labelCustomerID);
             this.Controls.Add(this.labelSale);
             this.Controls.Add(this.dataGridViewSale);
             this.Name = "frmSale";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Sale";
             this.Load += new System.EventHandler(this.frmSale_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSale)).EndInit();
@@ -345,7 +312,6 @@
         private System.Windows.Forms.Button buttonAddnew;
         private System.Windows.Forms.TextBox textBoxTotal;
         private System.Windows.Forms.Label labelProductName;
-        private System.Windows.Forms.Label labelCustomerName;
         private System.Windows.Forms.Button buttonPrint;
         private System.Windows.Forms.Button buttonSave;
         private System.Windows.Forms.Label labelTotal;
@@ -359,8 +325,6 @@
         private System.Windows.Forms.Label labelRate;
         private System.Windows.Forms.TextBox textBoxProductID;
         private System.Windows.Forms.Label labelProductID;
-        private System.Windows.Forms.TextBox textBoxCustomerID;
-        private System.Windows.Forms.Label labelCustomerID;
         private System.Windows.Forms.Label labelSale;
         private System.Windows.Forms.DataGridView dataGridViewSale;
         private System.Drawing.Printing.PrintDocument printDocumentSale;

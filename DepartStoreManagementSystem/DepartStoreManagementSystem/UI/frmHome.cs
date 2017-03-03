@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DepartStoreManagementSystem.DAL;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -39,6 +40,27 @@ namespace DepartStoreManagementSystem.UI
         {
             frmSale sale = new frmSale();
             sale.Show();
+        }
+
+        private void frmHome_Load(object sender, EventArgs e)
+        {
+            ProductDAL dal = new ProductDAL();
+            decimal products = dal.Get_Products();
+            labelCountProduct.Text = products.ToString();
+
+            UserDAL users = new UserDAL();
+            decimal totalusers =users.Get_Users();
+            labelCountUser.Text = totalusers.ToString();
+            
+            string username = frmLogin.username;
+           labelUser.Text = "Hello "+users.Get_Users_FullName(username);
+        }
+
+        private void logOutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmLogin login = new frmLogin();
+            login.Show();
+            this.Close();
         }
     }
 }

@@ -237,5 +237,82 @@ namespace DepartStoreManagementSystem.DAL
             }
             return isSuccess;
         }
+
+        //Get Total Product Types
+        public decimal Get_Products()
+        {
+            //STep 1: Create SQL Connection
+            SqlConnection conn = new SqlConnection(myconnstr);
+
+            //Create an Integer to return Stock
+            decimal Stock = 0;
+            DataTable dt = new DataTable();
+
+            try
+            {
+                //Step 2: Write T SQL Here
+                string sql = "SELECT Product_ID,Quantity FROM tbl_Product";
+
+                //Step 3: Create SQL Command using the sql and conn
+                SqlCommand cmd = new SqlCommand(sql, conn);
+                //cmd.Parameters.AddWithValue("@Product_ID", ProductID);
+
+                //Step 4: Create SQL Data Adapter using cmd to get records
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+
+                //Step 5: open Connection
+                conn.Open();
+
+                //Step 6: Use adapter to fill dt
+                adapter.Fill(dt);
+                //Get Quanityt from datatable dt
+                if (dt.Rows.Count > 0)
+                {
+                    Stock = dt.Rows.Count;
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
+            finally
+            {
+                //Step 7: Close Connection
+                conn.Close();
+            }
+            return Stock;
+        }
+        #region Get Products By Keywords
+        public DataTable Select_Produc_By_Keywordst(string keyword)
+        {
+            //Step 1: Create Sql Connection
+            SqlConnection conn = new SqlConnection(myconnstr);
+            //Create Datatable to hold the records from the database
+            DataTable dt = new DataTable();
+            try
+            {
+                //Step 2; Writing SQL Query
+                string sql = "SELECT * FROM tbl_Product WHERE Product_ID LIKE '%"+keyword+"%' OR Product_Name Like '%"+keyword+"%'";
+                //Step 3: Create Sql Command using sql and conn
+                SqlCommand cmd = new SqlCommand(sql, conn);
+                //Step 4: Create SQL DAta Adapter Using cmd to get records
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                //Step 5: Open Connection
+                conn.Open();
+                //Step 6: Use Adapter to Fill dt
+                adapter.Fill(dt);
+            }
+            catch (Exception ex)
+            {
+
+            }
+            finally
+            {
+                //STep 7:Close Connection
+                conn.Close();
+            }
+            return dt;
+        }
+        #endregion
     }
 }

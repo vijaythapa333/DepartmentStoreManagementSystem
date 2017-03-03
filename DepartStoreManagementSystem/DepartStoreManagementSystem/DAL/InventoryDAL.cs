@@ -18,7 +18,7 @@ namespace DepartStoreManagementSystem.DAL
         public decimal Get_Inventory(int ProductID)
         {
             //STep 1: Create SQL Connection
-            SqlConnection conn = new SqlConnection();
+            SqlConnection conn = new SqlConnection(myconnsctr);
 
             //Create an Integer to return Stock
             decimal Stock = 0;
@@ -27,11 +27,11 @@ namespace DepartStoreManagementSystem.DAL
             try
             {
                 //Step 2: Write T SQL Here
-                string sql = "SELECT PRODUCT_ID,Quantity FROM tbl_Product WHERE Product_ID=@Product_ID";
+                string sql = "SELECT Product_ID,Quantity FROM tbl_Product WHERE Product_ID="+ProductID;
 
                 //Step 3: Create SQL Command using the sql and conn
                 SqlCommand cmd = new SqlCommand(sql,conn);
-                cmd.Parameters.AddWithValue("@Product_ID", ProductID);
+                //cmd.Parameters.AddWithValue("@Product_ID", ProductID);
 
                 //Step 4: Create SQL Data Adapter using cmd to get records
                 SqlDataAdapter adapter = new SqlDataAdapter(cmd);
@@ -66,7 +66,7 @@ namespace DepartStoreManagementSystem.DAL
             try
             {
                 //Get Current Inventory of the Product
-                decimal currentStock = Get_Inventory(ProductID);
+               decimal currentStock = Get_Inventory(ProductID);
 
                 //Increase Current Inventory
                 decimal newStock = currentStock + Increasestock;
@@ -93,6 +93,7 @@ namespace DepartStoreManagementSystem.DAL
         public bool Decrease_Inventory(int ProductID,decimal decreaseStock)
         {
             bool success = false;
+            #region First MEthod
             try
             {
                 //Get Current Inventory of the product
@@ -117,6 +118,7 @@ namespace DepartStoreManagementSystem.DAL
             {
 
             }
+            #endregion
             return success;
         }
 

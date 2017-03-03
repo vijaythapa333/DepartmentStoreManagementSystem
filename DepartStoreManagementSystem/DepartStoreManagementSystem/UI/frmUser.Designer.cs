@@ -46,15 +46,16 @@
             this.comboBoxUserType = new System.Windows.Forms.ComboBox();
             this.buttonSave = new System.Windows.Forms.Button();
             this.buttonDelete = new System.Windows.Forms.Button();
+            this.txtSearch = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewUsers)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridViewUsers
             // 
             this.dataGridViewUsers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewUsers.Location = new System.Drawing.Point(385, 68);
+            this.dataGridViewUsers.Location = new System.Drawing.Point(385, 107);
             this.dataGridViewUsers.Name = "dataGridViewUsers";
-            this.dataGridViewUsers.Size = new System.Drawing.Size(529, 386);
+            this.dataGridViewUsers.Size = new System.Drawing.Size(529, 347);
             this.dataGridViewUsers.TabIndex = 0;
             this.dataGridViewUsers.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridViewUsers_RowHeaderMouseClick);
             // 
@@ -227,11 +228,21 @@
             this.buttonDelete.UseVisualStyleBackColor = false;
             this.buttonDelete.Click += new System.EventHandler(this.buttonDelete_Click);
             // 
+            // txtSearch
+            // 
+            this.txtSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSearch.Location = new System.Drawing.Point(385, 68);
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.Size = new System.Drawing.Size(529, 22);
+            this.txtSearch.TabIndex = 18;
+            this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
+            // 
             // frmUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(926, 481);
+            this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.buttonDelete);
             this.Controls.Add(this.buttonSave);
             this.Controls.Add(this.comboBoxUserType);
@@ -280,5 +291,6 @@
         private System.Windows.Forms.ComboBox comboBoxUserType;
         private System.Windows.Forms.Button buttonSave;
         private System.Windows.Forms.Button buttonDelete;
+        private System.Windows.Forms.TextBox txtSearch;
     }
 }

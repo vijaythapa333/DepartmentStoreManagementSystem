@@ -42,11 +42,8 @@
             this.labelRate = new System.Windows.Forms.Label();
             this.textBoxProductID = new System.Windows.Forms.TextBox();
             this.labelProductID = new System.Windows.Forms.Label();
-            this.textBoxVendorID = new System.Windows.Forms.TextBox();
-            this.labelVendorID = new System.Windows.Forms.Label();
             this.labelPurchase = new System.Windows.Forms.Label();
             this.dataGridViewPurchase = new System.Windows.Forms.DataGridView();
-            this.labelVendorName = new System.Windows.Forms.Label();
             this.labelProductName = new System.Windows.Forms.Label();
             this.textBoxTotal = new System.Windows.Forms.TextBox();
             this.buttonAddnew = new System.Windows.Forms.Button();
@@ -87,7 +84,7 @@
             // 
             this.labelTotal.AutoSize = true;
             this.labelTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTotal.Location = new System.Drawing.Point(15, 365);
+            this.labelTotal.Location = new System.Drawing.Point(15, 329);
             this.labelTotal.Name = "labelTotal";
             this.labelTotal.Size = new System.Drawing.Size(39, 16);
             this.labelTotal.TabIndex = 32;
@@ -96,7 +93,7 @@
             // textBoxTax
             // 
             this.textBoxTax.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxTax.Location = new System.Drawing.Point(115, 320);
+            this.textBoxTax.Location = new System.Drawing.Point(115, 284);
             this.textBoxTax.Name = "textBoxTax";
             this.textBoxTax.ReadOnly = true;
             this.textBoxTax.Size = new System.Drawing.Size(209, 22);
@@ -107,7 +104,7 @@
             // 
             this.labelTax.AutoSize = true;
             this.labelTax.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTax.Location = new System.Drawing.Point(15, 320);
+            this.labelTax.Location = new System.Drawing.Point(15, 284);
             this.labelTax.Name = "labelTax";
             this.labelTax.Size = new System.Drawing.Size(31, 16);
             this.labelTax.TabIndex = 30;
@@ -116,7 +113,7 @@
             // textBoxDiscount
             // 
             this.textBoxDiscount.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxDiscount.Location = new System.Drawing.Point(115, 273);
+            this.textBoxDiscount.Location = new System.Drawing.Point(115, 237);
             this.textBoxDiscount.Name = "textBoxDiscount";
             this.textBoxDiscount.ReadOnly = true;
             this.textBoxDiscount.Size = new System.Drawing.Size(209, 22);
@@ -127,7 +124,7 @@
             // 
             this.labelDiscount.AutoSize = true;
             this.labelDiscount.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelDiscount.Location = new System.Drawing.Point(15, 279);
+            this.labelDiscount.Location = new System.Drawing.Point(15, 243);
             this.labelDiscount.Name = "labelDiscount";
             this.labelDiscount.Size = new System.Drawing.Size(60, 16);
             this.labelDiscount.TabIndex = 28;
@@ -136,7 +133,7 @@
             // textBoxQuantity
             // 
             this.textBoxQuantity.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxQuantity.Location = new System.Drawing.Point(115, 237);
+            this.textBoxQuantity.Location = new System.Drawing.Point(115, 201);
             this.textBoxQuantity.Name = "textBoxQuantity";
             this.textBoxQuantity.Size = new System.Drawing.Size(209, 22);
             this.textBoxQuantity.TabIndex = 27;
@@ -145,7 +142,7 @@
             // 
             this.labelQty.AutoSize = true;
             this.labelQty.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelQty.Location = new System.Drawing.Point(15, 237);
+            this.labelQty.Location = new System.Drawing.Point(15, 201);
             this.labelQty.Name = "labelQty";
             this.labelQty.Size = new System.Drawing.Size(56, 16);
             this.labelQty.TabIndex = 26;
@@ -154,7 +151,7 @@
             // textBoxRate
             // 
             this.textBoxRate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxRate.Location = new System.Drawing.Point(115, 198);
+            this.textBoxRate.Location = new System.Drawing.Point(115, 162);
             this.textBoxRate.Name = "textBoxRate";
             this.textBoxRate.ReadOnly = true;
             this.textBoxRate.Size = new System.Drawing.Size(209, 22);
@@ -164,7 +161,7 @@
             // 
             this.labelRate.AutoSize = true;
             this.labelRate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelRate.Location = new System.Drawing.Point(15, 198);
+            this.labelRate.Location = new System.Drawing.Point(15, 162);
             this.labelRate.Name = "labelRate";
             this.labelRate.Size = new System.Drawing.Size(37, 16);
             this.labelRate.TabIndex = 24;
@@ -173,7 +170,7 @@
             // textBoxProductID
             // 
             this.textBoxProductID.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxProductID.Location = new System.Drawing.Point(115, 126);
+            this.textBoxProductID.Location = new System.Drawing.Point(115, 90);
             this.textBoxProductID.Name = "textBoxProductID";
             this.textBoxProductID.Size = new System.Drawing.Size(209, 22);
             this.textBoxProductID.TabIndex = 23;
@@ -183,29 +180,11 @@
             // 
             this.labelProductID.AutoSize = true;
             this.labelProductID.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelProductID.Location = new System.Drawing.Point(15, 126);
+            this.labelProductID.Location = new System.Drawing.Point(15, 90);
             this.labelProductID.Name = "labelProductID";
             this.labelProductID.Size = new System.Drawing.Size(70, 16);
             this.labelProductID.TabIndex = 22;
             this.labelProductID.Text = "Product ID";
-            // 
-            // textBoxVendorID
-            // 
-            this.textBoxVendorID.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxVendorID.Location = new System.Drawing.Point(115, 51);
-            this.textBoxVendorID.Name = "textBoxVendorID";
-            this.textBoxVendorID.Size = new System.Drawing.Size(209, 22);
-            this.textBoxVendorID.TabIndex = 21;
-            // 
-            // labelVendorID
-            // 
-            this.labelVendorID.AutoSize = true;
-            this.labelVendorID.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelVendorID.Location = new System.Drawing.Point(15, 51);
-            this.labelVendorID.Name = "labelVendorID";
-            this.labelVendorID.Size = new System.Drawing.Size(68, 16);
-            this.labelVendorID.TabIndex = 20;
-            this.labelVendorID.Text = "Vendor ID";
             // 
             // labelPurchase
             // 
@@ -222,25 +201,15 @@
             this.dataGridViewPurchase.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewPurchase.Location = new System.Drawing.Point(387, 90);
             this.dataGridViewPurchase.Name = "dataGridViewPurchase";
-            this.dataGridViewPurchase.Size = new System.Drawing.Size(529, 272);
+            this.dataGridViewPurchase.Size = new System.Drawing.Size(529, 261);
             this.dataGridViewPurchase.TabIndex = 18;
             this.dataGridViewPurchase.RowHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridViewPurchase_RowHeaderMouseDoubleClick);
-            // 
-            // labelVendorName
-            // 
-            this.labelVendorName.AutoSize = true;
-            this.labelVendorName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelVendorName.Location = new System.Drawing.Point(112, 90);
-            this.labelVendorName.Name = "labelVendorName";
-            this.labelVendorName.Size = new System.Drawing.Size(106, 16);
-            this.labelVendorName.TabIndex = 36;
-            this.labelVendorName.Text = "[ Vendor Name ]";
             // 
             // labelProductName
             // 
             this.labelProductName.AutoSize = true;
             this.labelProductName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelProductName.Location = new System.Drawing.Point(112, 166);
+            this.labelProductName.Location = new System.Drawing.Point(112, 130);
             this.labelProductName.Name = "labelProductName";
             this.labelProductName.Size = new System.Drawing.Size(108, 16);
             this.labelProductName.TabIndex = 37;
@@ -249,7 +218,7 @@
             // textBoxTotal
             // 
             this.textBoxTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxTotal.Location = new System.Drawing.Point(115, 365);
+            this.textBoxTotal.Location = new System.Drawing.Point(115, 329);
             this.textBoxTotal.Name = "textBoxTotal";
             this.textBoxTotal.ReadOnly = true;
             this.textBoxTotal.Size = new System.Drawing.Size(209, 22);
@@ -311,7 +280,6 @@
             this.Controls.Add(this.buttonAddnew);
             this.Controls.Add(this.textBoxTotal);
             this.Controls.Add(this.labelProductName);
-            this.Controls.Add(this.labelVendorName);
             this.Controls.Add(this.buttonPrint);
             this.Controls.Add(this.buttonSave);
             this.Controls.Add(this.labelTotal);
@@ -325,11 +293,10 @@
             this.Controls.Add(this.labelRate);
             this.Controls.Add(this.textBoxProductID);
             this.Controls.Add(this.labelProductID);
-            this.Controls.Add(this.textBoxVendorID);
-            this.Controls.Add(this.labelVendorID);
             this.Controls.Add(this.labelPurchase);
             this.Controls.Add(this.dataGridViewPurchase);
             this.Name = "frmPurchase";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Purchase";
             this.Load += new System.EventHandler(this.frmPurchase_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPurchase)).EndInit();
@@ -353,11 +320,8 @@
         private System.Windows.Forms.Label labelRate;
         private System.Windows.Forms.TextBox textBoxProductID;
         private System.Windows.Forms.Label labelProductID;
-        private System.Windows.Forms.TextBox textBoxVendorID;
-        private System.Windows.Forms.Label labelVendorID;
         private System.Windows.Forms.Label labelPurchase;
         private System.Windows.Forms.DataGridView dataGridViewPurchase;
-        private System.Windows.Forms.Label labelVendorName;
         private System.Windows.Forms.Label labelProductName;
         private System.Windows.Forms.TextBox textBoxTotal;
         private System.Windows.Forms.Button buttonAddnew;

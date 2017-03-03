@@ -52,6 +52,43 @@ namespace DepartStoreManagementSystem.DAL
             }
             return dt;
         }
+        #region SElect User by Keywords
+        public DataTable Select_User_By_Keywords(string keywords)
+        {
+            //Step 1: Create SQL Connection
+            SqlConnection conn = new SqlConnection(myconnstr);
+            //Create DataTable to hold the records from database
+            DataTable dt = new DataTable();
+
+            try
+            {
+                //Step 2: Writing SQL
+                String sql = "SELECT UserID,FullName,Username,Email,Contact,Password,UserType FROM tbl_User WHERE UserID Like '%"+keywords+"%' OR FullName Like '%"+keywords+"%' OR Username Like '%"+keywords+"%'";
+
+                //Step 3: Create SqlCommand Using the sql and conn
+                SqlCommand cmd = new SqlCommand(sql, conn);
+
+                //Step 4: Create Sql Data Adapter using cmd to get records
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+
+                //Step 5: Open Connection
+                conn.Open();
+
+                //Step 6: Use adapter to fill dt
+                adapter.Fill(dt);
+            }
+            catch (Exception ex)
+            {
+
+            }
+            finally
+            {
+                //Step 7: Close Connection
+                conn.Close();
+            }
+            return dt;
+        }
+        #endregion
 
         //Insert Data
         public bool Insert_User(User u)
@@ -205,5 +242,159 @@ namespace DepartStoreManagementSystem.DAL
             }
             return isSuccess;
         }
+
+        //Login User
+        public bool Login(string username,string password, string usertype)
+        {
+            //Step 1: Define boolean variable for login successfull and set initial value to false
+            bool isLogin = false;
+
+            //Step 2: Create Connection String
+            String connectionstring = myconnstr;
+
+            //Step 3: Create SQL Connection
+            SqlConnection conn = new SqlConnection(connectionstring);
+
+            try
+            {
+                //STep 4: Writing T-SQL for login
+                String sql = "SELECT * FROM tbl_USER WHERE Username=@Username AND Password=@Password AND UserType=@UserType";
+
+                //Step 5: Creating Sql Command using sql and command
+                SqlCommand cmd = new SqlCommand(sql, conn);
+
+                //Step 5.1 Add Values to Parameters
+                cmd.Parameters.AddWithValue("@Username", username);
+                cmd.Parameters.AddWithValue("@Password", password);
+                cmd.Parameters.AddWithValue("@UserType", usertype);
+
+                //Step 6: Create Sql Data Adapter using cmd to get records
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+
+                //Step 7: Create a datatable to hold the records from database
+                DataTable dt = new DataTable();
+
+                //Step 8: Open COnnection
+                conn.Open();
+
+                //Step 9: Use Adapter to fill dt
+                adapter.Fill(dt);
+
+                //..................................................................................
+                //Step 10: use dt to find if log in is successful/failed
+                if (dt.Rows.Count > 0)
+                {
+                    //Login SUccessful
+                    isLogin = true;
+                }
+                else
+                {
+                    //Login Failed
+                    isLogin = false;
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Windows.Forms.MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                //Step 11: Close Connection
+                conn.Close();
+            }
+            return isLogin;
+        }
+        #region get total users
+        public decimal Get_Users()
+        {
+            //STep 1: Create SQL Connection
+            SqlConnection conn = new SqlConnection(myconnstr);
+
+            //Create an Integer to return Stock
+            decimal Stock = 0;
+            DataTable dt = new DataTable();
+
+            try
+            {
+                //Step 2: Write T SQL Here
+                string sql = "SELECT userID FROM tbl_User";
+
+                //Step 3: Create SQL Command using the sql and conn
+                SqlCommand cmd = new SqlCommand(sql, conn);
+                //cmd.Parameters.AddWithValue("@Product_ID", ProductID);
+
+                //Step 4: Create SQL Data Adapter using cmd to get records
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+
+                //Step 5: open Connection
+                conn.Open();
+
+                //Step 6: Use adapter to fill dt
+                adapter.Fill(dt);
+                //Get Quanityt from datatable dt
+                if (dt.Rows.Count > 0)
+                {
+                    Stock = dt.Rows.Count;
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
+            finally
+            {
+                //Step 7: Close Connection
+                conn.Close();
+            }
+            return Stock;
+        }
+        #endregion
+        #region get users full name
+        public string Get_Users_FullName(string username)
+        {
+            //STep 1: Create SQL Connection
+            SqlConnection conn = new SqlConnection(myconnstr);
+
+            //Create an Integer to return Stock
+            //decimal Stock = 0;
+            string FullName = username;//Problem on getting fullname
+            DataTable dtUser = new DataTable();
+
+            try
+            {
+                //Step 2: Write T SQL Here
+                string sql = "SELECT FullName FROM tbl_User WHERE Username="+username;
+
+                //Step 3: Create SQL Command using the sql and conn
+                SqlCommand cmd = new SqlCommand(sql, conn);
+                //cmd.Parameters.AddWithValue("@Product_ID", ProductID);
+
+                //Step 4: Create SQL Data Adapter using cmd to get records
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+
+                //Step 5: open Connection
+                conn.Open();
+
+                //Step 6: Use adapter to fill dt
+                adapter.Fill(dtUser);
+                //Get Quanityt from datatable dt
+                if (dtUser.Rows.Count > 0)
+                {
+                    FullName = dtUser.Rows[0]["FullName"].ToString();
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
+            finally
+            {
+                //Step 7: Close Connection
+                conn.Close();
+            }
+            
+            return FullName;
+        }
+        #endregion
     }
 }

@@ -35,6 +35,8 @@
             this.buttonLogin = new System.Windows.Forms.Button();
             this.labelUserType = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.lblError = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // labelUsername
@@ -61,6 +63,7 @@
             // 
             // textBoxUsername
             // 
+            this.textBoxUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxUsername.Location = new System.Drawing.Point(55, 127);
             this.textBoxUsername.Multiline = true;
             this.textBoxUsername.Name = "textBoxUsername";
@@ -87,6 +90,7 @@
             this.buttonLogin.TabIndex = 4;
             this.buttonLogin.Text = "Log In";
             this.buttonLogin.UseVisualStyleBackColor = false;
+            this.buttonLogin.Click += new System.EventHandler(this.buttonLogin_Click);
             // 
             // labelUserType
             // 
@@ -113,11 +117,32 @@
             this.comboBox1.Size = new System.Drawing.Size(260, 28);
             this.comboBox1.TabIndex = 6;
             // 
-            // Login
+            // lblError
+            // 
+            this.lblError.AutoSize = true;
+            this.lblError.ForeColor = System.Drawing.Color.Red;
+            this.lblError.Location = new System.Drawing.Point(55, 63);
+            this.lblError.Name = "lblError";
+            this.lblError.Size = new System.Drawing.Size(0, 13);
+            this.lblError.TabIndex = 7;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(145, 25);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(81, 25);
+            this.label3.TabIndex = 8;
+            this.label3.Text = "LOGIN";
+            // 
+            // frmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(390, 409);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.lblError);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.labelUserType);
             this.Controls.Add(this.buttonLogin);
@@ -125,7 +150,7 @@
             this.Controls.Add(this.textBoxUsername);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.labelUsername);
-            this.Name = "Login";
+            this.Name = "frmLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
             this.ResumeLayout(false);
@@ -142,5 +167,7 @@
         private System.Windows.Forms.Button buttonLogin;
         private System.Windows.Forms.Label labelUserType;
         private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Label lblError;
+        private System.Windows.Forms.Label label3;
     }
 }

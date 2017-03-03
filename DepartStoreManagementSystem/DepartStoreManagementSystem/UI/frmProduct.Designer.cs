@@ -198,6 +198,7 @@
             this.textBoxSearch.Name = "textBoxSearch";
             this.textBoxSearch.Size = new System.Drawing.Size(501, 22);
             this.textBoxSearch.TabIndex = 37;
+            this.textBoxSearch.TextChanged += new System.EventHandler(this.textBoxSearch_TextChanged);
             // 
             // frmProduct
             // 
@@ -220,6 +221,7 @@
             this.Controls.Add(this.labelProductID);
             this.Controls.Add(this.dataGridViewProduct);
             this.Name = "frmProduct";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Product";
             this.Load += new System.EventHandler(this.frmProduct_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProduct)).EndInit();

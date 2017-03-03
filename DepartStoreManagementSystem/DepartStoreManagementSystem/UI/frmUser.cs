@@ -158,5 +158,24 @@ namespace DepartStoreManagementSystem.UI
                 MessageBox.Show("Select User First.");
             }
         }
+
+        private void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+            //Get User Input
+            string keyword = txtSearch.Text;
+
+            if(keyword!=null)
+            {
+                UserDAL dal = new UserDAL();
+                DataTable dt = dal.Select_User_By_Keywords(keyword);
+                dataGridViewUsers.DataSource = dt;
+            }
+            else
+            {
+                UserDAL dal = new UserDAL();
+                DataTable dt = dal.Select_User();
+                dataGridViewUsers.DataSource = dt;
+            }
+        }
     }
 }
